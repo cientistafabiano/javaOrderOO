@@ -4,7 +4,7 @@ public class OrderItem {
 	private Integer quantity;
 	private Double price;
 	//the associate
-	public Product product;
+	private Product product;
 	//overload
 	public OrderItem() {
 	}
@@ -36,5 +36,15 @@ public class OrderItem {
 	//methods
 	public Double subTotal() {
 		return quantity * price;
+	}
+	@Override
+	public String toString() {
+		return getProduct().getName()
+				+ ", $"
+				+ String.format("%.2f", price)
+				+ ", Quantity: "
+				+ quantity
+				+ ", Subtotal: $"
+				+ String.format("%.2f", subTotal());
 	}
 }
